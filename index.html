@@ -1,0 +1,87 @@
+<!-- Trigger rebuild -->
+<!DOCTYPE >
+<html lang="en">
+<head>
+  <!-- Define character encoding -->
+  <meta charset="UTF-8">
+  
+  <!-- Ensure responsive scaling for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Compatibility for Internet Explorer -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Page title -->
+  <title>Manipulating the DOM</title>
+
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
+
+  <!-- Link to custom stylesheet -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header includes the navigation menu -->
+  <!-- HTML follows BEM conventions; IDs are used for anchor targets -->
+  <header class="page__header">
+    <nav class="navbar__menu">
+      <!-- Nav menu items will be generated via JavaScript -->
+      <ul id="navbar__list"></ul>
+    </nav>
+  </header>
+
+  <!-- Main content of the page -->
+  <main>
+    <!-- Hero section with page title -->
+    <header class="main__hero">
+      <h1>Toni's Landing Page!</h1>
+    </header>
+
+    <!-- Section 1 (default active) -->
+    <!-- Each section has a unique ID and data-nav used to populate the nav dynamically -->
+    <section id="section1" data-nav="Section 1" class="your-active-class">
+      <div class="landing__container">
+        <h2>Section 1</h2>
+        <p>This project highlights my ability to manipulate the DOM using JavaScript. The navigation menu is built dynamically, ensuring seamless updates as new sections are added. Smooth scrolling enhances navigation for a more intuitive user experience.</p>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section2" data-nav="Section 2">
+      <div class="landing__container">
+        <h2>Section 2</h2>
+        <p>By combining JavaScript for interactivity, CSS for responsiveness, and HTML for structure, this project showcases core front-end development skills. Key features include a dynamically generated navigation menu, active section highlighting, and — of course — that silky-smooth scrolling.</p>
+        <p>I’ve spent over a decade in technical support, mastering the art of solving problems and helping people. But what truly excites me now is building solutions from the ground up. As I shift from support into development, I’m fueled by the opportunity to design innovative, user-friendly software that evolves with technology and improves people’s lives. They say, “Do what you love, and you’ll never work a day in your life.” Well — challenge accepted. Let’s build something better!</p>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section3" data-nav="Section 3">
+      <div class="landing__container">
+        <h2>Section 3</h2>
+        <!-- Placeholder for future enhancements -->
+        <!-- <p>Future enhancements for this project include integrating local storage to retain user preferences and optimizing performance with techniques like debouncing to reduce unnecessary computations.</p> -->
+        <p>Learning never stops. Each challenge I tackle sharpens my problem-solving and strengthens my coding chops. With this project, I continue to grow — always putting user experience front and center.</p>
+      </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section id="section4" data-nav="Section 4">
+      <div class="landing__container">
+        <h2>Section 4</h2>
+        <p>Building interactive web pages is both an art and a science. Through projects like this, I explore best practices in modern web development to ensure accessibility, efficiency, and engaging interactivity.</p>
+        <p>Embracing new technologies and refining my skills keeps me motivated. Every project is a chance to innovate, improve, and create meaningful digital experiences that make people’s lives easier.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page__footer">
+    <p>&copy Toni's Landing Page 🌍</p>
+  </footer>
+
+  <!-- Link to JavaScript file for interactivity -->
+  <script src="js/app.js"></script>
+</body>
+</html>
+

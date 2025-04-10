@@ -1,0 +1,230 @@
+/*
+ * SMACSS-based architecture
+ * No reset or normalize for simplicity
+ * Ref: http://smacss.com/ | https://css-tricks.com/reboot-resets-reasoning/
+ */
+
+/* ---- Base Rules ---- */
+body {
+  background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+  margin: 0;
+  font-family: 'Merriweather', serif;
+  color: #fff;
+}
+
+/* ---- Typography ---- */
+h1 {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 3em;
+  margin: 2em 1rem;
+}
+
+/* Larger font on wider screens */
+@media only screen and (min-width: 35em) {
+  h1 {
+    font-size: 7em;
+    margin: 2em 4rem 1em;
+  }
+}
+
+h2 {
+  border-bottom: 1px solid #cc1;
+  font-family: 'Oxygen', Sans-Serif;
+  font-size: 3em;
+  color: #fff;
+}
+
+p {
+  line-height: 1.6em;
+  color: #eee;
+}
+
+/* ---- Layout ---- */
+main {
+  margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+  min-height: 40vh;
+  padding-top: 3em;
+}
+
+section {
+  position: relative;
+  min-height: 80vh;
+}
+
+/* ---- Module Rules ---- */
+/* Navigation layout */
+.navbar__menu ul {
+  padding-left: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.navbar__menu li {
+  display: inline-block;
+}
+
+.navbar__menu .menu__link {
+  display: block;
+  padding: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar__menu .menu__link:hover {
+  background: #333;
+  color: #fff;
+  transition: ease 0.3s all;
+}
+
+/* Sticky top header */
+.page__header {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+/* Footer styling */
+.page__footer {
+  background: #000;
+  padding: 3em;
+  color: #fff;
+}
+
+.page__footer p {
+  color: #fff;
+}
+
+/* ---- Theme Rules ---- */
+/* Section content container */
+.landing__container {
+  padding: 1em;
+  text-align: left;
+}
+
+/* Active nav link highlight */
+.menu__link.active {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* Wider padding and max width for larger screens */
+@media only screen and (min-width: 35em) {
+  .landing__container {
+    max-width: 50em;
+    padding: 4em;
+  }
+}
+
+/* Flip text for even sections */
+section:nth-of-type(even) .landing__container {
+  margin-right: 0;
+  margin-left: auto;
+  text-align: right;
+}
+
+/* ---- Decorative Background Circles ---- */
+/* Background circles for odd/even/3n/3n+1 sections */
+section:nth-of-type(odd) .landing__container::before,
+section:nth-of-type(even) .landing__container::before,
+section:nth-of-type(3n) .landing__container::after,
+section:nth-of-type(3n + 1) .landing__container::after {
+  content: '';
+  position: absolute;
+  z-index: -5;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+/* Custom positions/sizes/colors for each pattern */
+section:nth-of-type(odd) .landing__container::before {
+  background: rgba(255, 255, 255, 0.187);
+  width: 20vh;
+  height: 20vh;
+}
+
+section:nth-of-type(even) .landing__container::before {
+  background: linear-gradient(0deg, rgba(255,255,255,.1), rgba(255,255,255,.2));
+  top: 3em;
+  right: 3em;
+  width: 10vh;
+  height: 10vh;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+  background: linear-gradient(0deg, rgba(255,255,255,.1), rgba(255,255,255,.2));
+  right: 0;
+  bottom: 0;
+  width: 10vh;
+  height: 10vh;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+  background: linear-gradient(0deg, rgba(255,255,255,.1), rgba(255,255,255,.2));
+  right: 20vw;
+  bottom: -5em;
+  width: 15vh;
+  height: 15vh;
+}
+
+/* ---- Section Active State ---- */
+/* Applied by JS for highlighting visible section */
+section.your-active-class {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+section.your-active-class .landing__container::before {
+  opacity: 1;
+  animation: rotate 4s linear infinite forwards;
+}
+
+section.your-active-class .landing__container::after {
+  opacity: 1;
+  animation: rotate 5s linear infinite forwards reverse;
+}
+
+/* Keyframes for spinning animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
+
+/* ---- Mobile Styles ---- */
+@media only screen and (max-width: 768px) {
+  .navbar__menu ul {
+    text-align: center;
+  }
+
+  .navbar__menu li {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .page__header {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+
+  .landing__container {
+    padding: 2em;
+    text-align: center;
+  }
+
+  .scroll-top-btn {
+    bottom: 15px;
+    right: 15px;
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
